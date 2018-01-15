@@ -1,0 +1,25 @@
+.button{
+  position: relative;
+  display: inline-block;
+  &.create{
+    border-radius: 4px;
+    width: 140px;
+    height: 36px;
+    background-color: #007DFF;
+    color:white;
+    font-size: 13px;
+    line-height: 34px;
+  }
+  &:hover{
+    background-color: #0059FF;
+    cursor: pointer;
+  }
+  &.pressed{
+    background-color: #0B00FF 
+  }
+  &.disabled{
+    pointer-events:none;
+    background-color: #E9ECEF;
+    color:transparentize(#1364CD, 0.8);
+  }
+ }

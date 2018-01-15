@@ -1,0 +1,28 @@
+.curtime{
+  position: absolute;
+  display: inline-block;
+  top: 14px;
+  width: 49px;
+  height: 20px;
+  line-height: 19px;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #007DFF;
+  border-radius: 100px;
+  color:white;
+  transform:translateX(-50%);
+  z-index: 2;
+  &:before{
+    z-index:1;
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+    left: 50%;
+    transform:translateX(-50%);
+    height: 1000px;
+    background-color: #007DFF;
+    width: 1px;
+  }
+}

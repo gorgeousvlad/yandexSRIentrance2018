@@ -1,0 +1,19 @@
+.grid{
+	position: absolute;
+	top: 45px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #F6F7F9;
+}
+.cell{
+	float: left;
+	height: 100%;
+	background-color: transparent;
+	border: 0px solid transparentize(#1364CD, 0.9);
+	border-left-width: 1px;
+	box-sizing:border-box;
+	&:first-of-type{
+		border-left-width: 0px;
+	}
+}

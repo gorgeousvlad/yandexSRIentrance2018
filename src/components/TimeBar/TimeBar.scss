@@ -1,0 +1,37 @@
+.timebar{
+	width: 100%;
+	height: 46px;
+	border: 0px solid transparentize(#1364CD, 0.9);
+	box-sizing:border-box;
+	border-top-width:1px;
+	border-bottom-width: 1px;
+	overflow-y: visible;
+	overflow-x: hidden;
+	z-index: 15;
+}
+
+.hour{
+	z-index: 1;
+	float: left;
+	height: 100%;
+	background-color: transparent;
+	text-align: right;
+	&:first-of-type{
+		border-left-width: 0px;
+	}
+	.hour-text{
+		display: inline-block;
+		font-size: 13px;
+		transform:translateX(50%);
+		font-weight: bold;
+		margin-top: 14px;
+		// &:before{
+		// 	content: " ";
+		// 	width: 1%;
+		// 	height: 100%;
+		// 	display: inline-block;
+		// 	position: relative;
+		// 	vertical-align: top;
+		// }
+	}
+}
