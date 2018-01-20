@@ -1,4 +1,4 @@
-import {month} from './locales.json'
+import {month,calendar_days} from './locales.json'
 export function timeFromRange(start,end) {
 		const zeroify = (date) => date < 10? "0" + date : date;
 		return `${zeroify(start.getHours())}:${zeroify(start.getMinutes())} — ${zeroify(end.getHours())}:${zeroify(end.getMinutes())}`
@@ -22,4 +22,8 @@ export function getDecl(words,number) {
 
 export function getCapacity(capacity) {
 	return capacity < 10? `3—${capacity} человек` : `до ${capacity} человек`
+}
+
+export function getWeek() {
+	return calendar_days;
 }

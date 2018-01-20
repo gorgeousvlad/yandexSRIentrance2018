@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Calendar from "../Calendar/Calendar";
+import DateBlock from "../DateBlock/DateBlock";
 import TimeBar from "../TimeBar/TimeBar";
 import Grid from "../Grid/Grid";
 import Diagramme from "../Diagramme/Diagramme";
@@ -112,7 +112,7 @@ export default class MainContainer extends Component{
 		return (
 		<div className = "main-container">
 			<div className = "left-col">
-			<Calendar/>
+			<DateBlock date = {new Date()} onDateChange = {(date)=>console.log("date change",date)}/>
 			<RoomContainer hover = {2} allBusy = {[1]} rooms = {roomsByFloor}/>
 			</div>
 			<div className = "main-col">

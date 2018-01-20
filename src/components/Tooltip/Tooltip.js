@@ -3,7 +3,6 @@ import './Tooltip.scss';
 import User from "../User/User";
 import NavigationIcon from "../NavigationIcon/NavigationIcon";
 import {timeFromRange,getMonthNameDecl,getDecl} from '../../helpers/helpers.js'
-const R = require('ramda');
 export default class Tooltip extends Component{
     constructor (props){
     super(props);

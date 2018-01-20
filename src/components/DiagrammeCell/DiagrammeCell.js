@@ -5,7 +5,6 @@ const R = require('ramda');
 export default class DiagrammeCell extends Component{
     constructor (props){
     super(props);
-    console.log("PS",this.props)
     this.state = {hover:false, showToolTip:false}
     }
     _onMouseEnter(ev){

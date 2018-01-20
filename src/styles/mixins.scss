@@ -1,0 +1,9 @@
+@mixin hover-blue-text(){
+		&:hover{
+			color:#0070E0;
+			cursor: pointer;
+	}
+}
+@mixin box-shadow-white(){
+	box-shadow: 0 1px 10px rgba(0,44,92,0.28);
+}
