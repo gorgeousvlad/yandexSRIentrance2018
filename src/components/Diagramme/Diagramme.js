@@ -20,9 +20,12 @@ export default class Diagramme extends Component{
                   {
                     this.props.roomsByFloor[floor].map((room,rindex) => {
                       return <DiagrammeRoom 
-                        key = {`diagroom${rindex}`}
-                        room = "room" 
-                        events = {this.props.events.filter((e)=>e.room.id === room.id)} 
+                        key = {`diagroom${findex}-${rindex}`}
+                        room = {room} 
+                        events = {this.props.events
+                          .filter((e)=>e.room.id === room.id)
+                          .sort((a,b)=> a.dateStart - b.dateStart)
+                        } 
                         hours = {17}
                       />
                     })

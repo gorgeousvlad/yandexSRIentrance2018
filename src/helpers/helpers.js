@@ -19,3 +19,7 @@ export function getDecl(words,number) {
 	}
 	return words[2];
 }
+
+export function getCapacity(capacity) {
+	return capacity < 10? `3—${capacity} человек` : `до ${capacity} человек`
+}

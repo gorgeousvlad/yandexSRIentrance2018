@@ -134,7 +134,7 @@ export default class DiagrammeRoom extends Component{
             <div className = "diagramme-room">
             {this.splitEmpty(this.getCells()).map((cell,index) => {
               return <DiagrammeCell
-              key = {`dcell${index}`} 
+              key = {`dcell${this.props.room.id}-${index}`} 
               type = {cell.type}
 
               width = {`${this.widthInMinutes(cell)}%`}

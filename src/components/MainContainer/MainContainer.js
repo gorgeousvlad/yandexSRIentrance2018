@@ -4,6 +4,7 @@ import TimeBar from "../TimeBar/TimeBar";
 import Grid from "../Grid/Grid";
 import Diagramme from "../Diagramme/Diagramme";
 import DiagrammeRoom from "../DiagrammeRoom/DiagrammeRoom";
+import RoomContainer from "../RoomContainer/RoomContainer";
 import "./MainContainer.scss";
 
 let events = [
@@ -18,22 +19,22 @@ let events = [
 		title:"Потрем за жизнь",
 		room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
 	},
-	// {
-	// 	id:2,
-	// 	dateStart: new Date(Date.parse("January 26, 2011 14:10:00")),
-	// 	dateEnd: new Date(Date.parse("January 26, 2011 15:30:00")),
-	// 	users:[{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}],
-	// 	title:"Встреча одноклассников",
-	// 	room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
-	// },
 	{
-		id:3,
-		dateStart: new Date(Date.parse("January 26, 2011 18:00:00")),
-		dateEnd: new Date(Date.parse("January 26, 2011 19:00:00")),
+		id:2,
+		dateStart: new Date(Date.parse("January 26, 2011 14:00:00")),
+		dateEnd: new Date(Date.parse("January 26, 2011 14:30:00")),
 		users:[{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}],
-		title:"Собрание js",
+		title:"Встреча одноклассников",
 		room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
 	},
+	// {
+	// 	id:3,
+	// 	dateStart: new Date(Date.parse("January 26, 2011 18:00:00")),
+	// 	dateEnd: new Date(Date.parse("January 26, 2011 19:00:00")),
+	// 	users:[{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}],
+	// 	title:"Собрание js",
+	// 	room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
+	// },
 	{
 		id:4,
 		dateStart: new Date(Date.parse("January 26, 2011 22:00:00")),
@@ -77,14 +78,20 @@ rooms = [
 	{
 		id: 2,
     title: "Прачечная",
-    capacity: 10,
+    capacity: 6,
     floor: 7
 	},
 	{
 		id: 3,
     title: "Желтый дом",
-    capacity:10,
-    floor: 7
+    capacity:6,
+    floor: 6
+	},
+	{
+		id: 4,
+    title: "Джокер",
+    capacity:3,
+    floor: 5
 	}
 ],
 roomsByFloor = rooms.reduce((acc,cur)=> {
@@ -106,6 +113,7 @@ export default class MainContainer extends Component{
 		<div className = "main-container">
 			<div className = "left-col">
 			<Calendar/>
+			<RoomContainer hover = {2} allBusy = {[1]} rooms = {roomsByFloor}/>
 			</div>
 			<div className = "main-col">
 				<div className = "main-shift">

@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import './Tooltip.scss';
 import User from "../User/User";
+import NavigationIcon from "../NavigationIcon/NavigationIcon";
 import {timeFromRange,getMonthNameDecl,getDecl} from '../../helpers/helpers.js'
 const R = require('ramda');
 export default class Tooltip extends Component{
@@ -16,6 +17,13 @@ export default class Tooltip extends Component{
                 className = {`tooltip ${this.props.visible?"visible":"hidden"}`}
             >
                 <div className ="tooltip-title">{this.props.title}</div>
+                <NavigationIcon 
+                    type = 'edit' 
+                    onClick = {(e) => 
+                        {
+                            console.log("edit")
+                            e.stopPropagation()
+                        }}/>
                 <div className = "tooltip-event-info">
                     {`${dateStart.getDay()} ${getMonthNameDecl(dateStart.getMonth())} ${timeFromRange(dateStart,dateEnd)} · ${room.title}`}
                 </div>

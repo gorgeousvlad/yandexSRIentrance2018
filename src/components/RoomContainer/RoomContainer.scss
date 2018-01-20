@@ -1,0 +1,39 @@
+.room-container{
+	text-align: left;
+	margin-top: 21px;
+}
+.room-container-stage{
+	margin-left: 25px;
+	margin-top: 25px;
+	&:first-child{
+		margin-top: 0;
+	}
+}
+.room-container-stage-label{
+	font-weight: bold;
+	font-size: 11px;
+	margin-bottom:8px;
+	color:#858E98;
+}
+
+.room-container-room{
+	height: 44px;
+	margin-bottom: 20px;
+	&.busy{
+		color:#858E98;
+	}
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+.room-container-title{
+	font-size: 15px;
+	font-weight: bold;
+	&.hover{
+		color:#0070E0;
+	}
+}
+.room-container-capacity{
+	margin-top: 2px;
+	font-size: 13px;
+}
