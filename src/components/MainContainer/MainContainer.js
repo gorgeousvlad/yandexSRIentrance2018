@@ -120,6 +120,8 @@ export default class MainContainer extends Component{
 					<TimeBar hours = {17} init = {8}/>
 					<Grid hours = {17}/>
 					<Diagramme 
+						date = {new Date()}
+						splitter = {new Date()}
 						events = {events}
 						roomsByFloor = {roomsByFloor}
 						addEvent = {()=>console.log("addEvent")}

@@ -7,7 +7,8 @@ export default class TimeBar extends React.Component{
     super(props);
   }
   render(){
-  	let cellWidth = 100/this.props.hours
+  	let cellWidth = 100/this.props.hours,
+      hour = new Date().getHours()
     return (
       <div className = "timebar">
       <Curtime {...this.props}/>
@@ -20,7 +21,7 @@ export default class TimeBar extends React.Component{
     				width:`${cellWidth}%`
     			}}
     		>
-    			<div className = "hour-text">
+    			<div className = {`hour-text ${((this.props.init + index) < hour)? "disabled" : ""}`}>
     				{(this.props.init + index === 8)?"8:00":this.props.init + index}
     			</div>
     		</div>

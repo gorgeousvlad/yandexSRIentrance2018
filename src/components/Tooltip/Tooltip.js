@@ -16,13 +16,17 @@ export default class Tooltip extends Component{
                 className = {`tooltip ${this.props.visible?"visible":"hidden"}`}
             >
                 <div className ="tooltip-title">{this.props.title}</div>
-                <NavigationIcon 
-                    type = 'edit' 
-                    onClick = {(e) => 
-                        {
-                            console.log("edit")
-                            e.stopPropagation()
-                        }}/>
+                {this.props.disabled? 
+                  null:
+                  <NavigationIcon 
+                  type = 'edit' 
+                  onClick = {(e) => 
+                      {
+                          console.log("edit")
+                          e.stopPropagation()
+                      }}/>
+                }
+                
                 <div className = "tooltip-event-info">
                     {`${dateStart.getDay()} ${getMonthNameDecl(dateStart.getMonth())} ${timeFromRange(dateStart,dateEnd)} · ${room.title}`}
                 </div>

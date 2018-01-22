@@ -18,6 +18,12 @@
 			border-color: #1d54fe;
 			border-radius:2px;
 		}
+		&.disabled{
+			background-color: #D5DFE9;
+			color:#D5DFE9;
+			border:1px solid #D5DFE9;		
+			pointer-events:none;
+		}
 			
 	}
 	&.event{

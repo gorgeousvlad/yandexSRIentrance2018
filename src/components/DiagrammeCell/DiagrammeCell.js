@@ -23,9 +23,10 @@ export default class DiagrammeCell extends Component{
         return (
             <div
             className = {
-              `diagramme-cell ${this.props.type} 
-              ${this.state.hover?"hover":""}
-              ${this.state.showToolTip?"pressed":""}`
+              `diagramme-cell ${this.props.type}`+ 
+              ` ${this.state.hover?"hover":""}` +
+              ` ${this.state.showToolTip?"pressed":""}`+
+              ` ${this.props.disabled}`
             }
             style = {{
               width:this.props.width,
@@ -39,6 +40,7 @@ export default class DiagrammeCell extends Component{
             <Tooltip 
               {...this.props.eventInfo}
               visible = {this.state.showToolTip}
+              disabled = {this.props.disabled}
             />}
             </div>
             )

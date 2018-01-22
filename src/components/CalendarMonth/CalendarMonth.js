@@ -7,6 +7,12 @@ export default class CalendarMonth extends React.Component{
   constructor (props){
     super(props);
   }
+  _isCurDay(day){
+    let now = new Date();
+    if(now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate()){
+    }
+    return (now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate())
+  }
   render(){
     const MONTH_LEN = 35;
     let cur = this.props.date,
@@ -58,7 +64,8 @@ export default class CalendarMonth extends React.Component{
             key = {`calendar-month-day-${index}`}
             className = {"calendar-month-day" + 
             ` ${day.getMonth() !== cur.getMonth()?"gray":""}`+
-            ` ${(day.getDay() === 6 || day.getDay() === 0)? "holiday":""}`
+            ` ${(day.getDay() === 6 || day.getDay() === 0)? "holiday":""}` +
+            ` ${this._isCurDay(day)? "now" : ""}`
             }
             onClick = {this.props.onDateChange.bind(null,day)}
             >{day.getDate()}

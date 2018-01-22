@@ -25,7 +25,9 @@ export default class Diagramme extends Component{
                         events = {this.props.events
                           .filter((e)=>e.room.id === room.id)
                           .sort((a,b)=> a.dateStart - b.dateStart)
-                        } 
+                        }
+                        date = {this.props.date}
+                        splitter = {this.props.splitter}
                         hours = {17}
                       />
                     })

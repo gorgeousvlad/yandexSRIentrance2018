@@ -16,16 +16,18 @@ export default class DiagrammeRoom extends Component{
         sm = DiagrammeRoom.SM,
         em = DiagrammeRoom.EM,
         eh = sh + this.props.hours - 1 ,
-        events = [...this.state.events];
+        events = [...this.state.events],
+        hour = this.props.splitter.getHours();
       if (events.length === 0){
-        return  R.range(0,this.props.hours).map((index) =>{ 
+        return  R.range(sh,this.props.hours + sh + 1).map((index) =>{ 
             return {
-            hstart:index,
-            mstart:0,
-            hend:index + 1,
-            mend:0,
-            type:"empty",
-            room:this.props.room
+              hstart:index,
+              mstart:0,
+              hend:index + 1,
+              mend:0,
+              type:"empty",
+              disabled:(index) <= hour,
+              room:this.props.room
           }
         })
       }
@@ -39,6 +41,7 @@ export default class DiagrammeRoom extends Component{
               hend:bounds.hstart,
               mend:bounds.mstart,
               type:"empty",
+              disabled: bounds.hstart < hour,
               room:this.props.room
             })
           }
@@ -52,6 +55,7 @@ export default class DiagrammeRoom extends Component{
               hend:bounds.hstart,
               mend:bounds.mstart,
               type:"empty",
+              disabled: bounds.hstart <= hour,
               room:this.props.room
             })
           }
@@ -63,6 +67,7 @@ export default class DiagrammeRoom extends Component{
             mend:bounds.mend,
             type:"event",
             room:this.props.room,
+            disabled: bounds.hend <= hour,
             id:cur.id
           })
         if (index === this.state.events.length - 1){
@@ -73,6 +78,7 @@ export default class DiagrammeRoom extends Component{
               hend:eh,
               mend:em,
               type:"empty",
+              disabled: bounds.hend <= eh,
               room:this.props.room
             })
           }
@@ -82,8 +88,12 @@ export default class DiagrammeRoom extends Component{
     }
 
     splitEmpty(cells){
+      let hour = new Date().getHours(),
+        splitter = this.props.splitter
       return cells.reduce((acc,cur,index) => {
-        if(cur.type === "empty" && cur.hstart !== cur.hend){
+        if(cur.type === "empty" 
+          && cur.hstart !== cur.hend
+        ){
           let hstart_ = cur.hstart;
           let mstart_ = cur.mstart;
           while (hstart_ < cur.hend){
@@ -93,6 +103,7 @@ export default class DiagrammeRoom extends Component{
               hend:hstart_ + 1,
               mend:0,
               type:"empty",
+              disabled: hstart_ + 1 <= hour,
               room:this.props.room
             })
             hstart_++;
@@ -105,6 +116,7 @@ export default class DiagrammeRoom extends Component{
               hend:cur.hend,
               mend:cur.mend,
               type:"empty",
+              disabled: cur.hend <= hour,
               room:this.props.room
             })
           }    
@@ -114,6 +126,42 @@ export default class DiagrammeRoom extends Component{
         }
         return acc;
       },[])
+    }
+
+    insertSplitter(cells){
+      let s = this.props.splitter,
+      ssum = s.getHours()*60 + s.getMinutes()
+      return R.flatten(cells.map((cell,index) => {
+        if(cell.type === "empty" && s.getHours() === cell.hstart){
+         let csumStart = cell.hstart*60 + cell.mstart,
+          csumEnd = cell.hend*60 + cell.mend
+         if(csumStart < ssum && csumEnd > ssum){
+            return [
+            {
+              hstart: cell.hstart,
+              mstart:cell.mstart,
+              hend:s.getHours(),
+              mend:s.getMinutes(),
+              type:"empty",
+              disabled:true,
+              room:cell.room
+            },
+            {
+              hstart:s.getHours(),
+              mstart:s.getMinutes(),
+              hend:cell.hend,
+              mend:cell.mend,
+              type:"empty",
+              disabled:false,
+              room:cell.room
+            },
+          ]
+         }
+        }
+        else{
+          return cell;
+        }
+      }))
     }
 
     getEventBounds(event){
@@ -132,13 +180,15 @@ export default class DiagrammeRoom extends Component{
     render(){
         return (
             <div className = "diagramme-room">
-            {this.splitEmpty(this.getCells()).map((cell,index) => {
+            {this.insertSplitter(this.splitEmpty(this.getCells())).map((cell,index) => {
               return <DiagrammeCell
               key = {`dcell${this.props.room.id}-${index}`} 
               type = {cell.type}
-
+              disabled = {(()=>{
+                return `${cell.disabled? "disabled" : ""}`
+              })()}
               width = {`${this.widthInMinutes(cell)}%`}
-              border = {cell.mstart? "white" : `${DiagrammeRoom.BORDER_COLOR}`}
+              border = {(cell.mstart && !cell.disabled)? "white" : `${DiagrammeRoom.BORDER_COLOR}`}
               hover = {((room)=>{console.log(room)}).bind(null,cell.room)}
               unhover = {(()=>{console.log("unhover")})}
               eventInfo = {this.props.events.filter((e)=>e.id === cell.id)[0]}

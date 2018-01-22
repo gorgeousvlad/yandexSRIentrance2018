@@ -27,13 +27,8 @@
 		transform:translateX(50%);
 		font-weight: bold;
 		margin-top: 14px;
-		// &:before{
-		// 	content: " ";
-		// 	width: 1%;
-		// 	height: 100%;
-		// 	display: inline-block;
-		// 	position: relative;
-		// 	vertical-align: top;
-		// }
+		&.disabled{
+			color: #858E98;
+		}
 	}
 }

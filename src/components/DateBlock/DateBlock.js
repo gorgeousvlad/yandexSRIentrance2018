@@ -6,7 +6,7 @@ export default class DateBlock extends React.Component{
 
   constructor (props){
     super(props);
-    this.state = ({calendar:true})
+    this.state = ({calendar:false})
   }
    _showCalendar(){
     this.setState({calendar:!this.state.calendar})
