@@ -1,6 +1,6 @@
 import {month,calendar_days} from './locales.json'
+const zeroify = (date) => date < 10? "0" + date : date;
 export function timeFromRange(start,end) {
-		const zeroify = (date) => date < 10? "0" + date : date;
 		return `${zeroify(start.getHours())}:${zeroify(start.getMinutes())} — ${zeroify(end.getHours())}:${zeroify(end.getMinutes())}`
 		}
 export function getMonthName(index) {
@@ -24,6 +24,13 @@ export function getCapacity(capacity) {
 	return capacity < 10? `3—${capacity} человек` : `до ${capacity} человек`
 }
 
+export function getHourMinute(date) {
+	return `${zeroify(date.getHours())}:${zeroify(date.getMinutes())}`;
+}
 export function getWeek() {
 	return calendar_days;
 }
+export function validateTime(time){
+	return /([0-2][0-9])\:([0-5][0-9])/.test(time)
+}
+
