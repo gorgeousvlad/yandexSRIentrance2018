@@ -1,12 +1,10 @@
 @import './../../styles/mixins';
 .calendar-outer{
 	position: absolute;
-	top: 45px;
-	left: 25px;
 	padding:7%;
 	border-radius: 4px;
 	width: 236%;
-	height:202px;
+	min-height:202px;
 	background-color: white;
 	@include box-shadow-white();
 }

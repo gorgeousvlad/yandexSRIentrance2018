@@ -1,0 +1,22 @@
+.calendar-icon{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    left:-24px;
+    z-index:10;
+    opacity: 0.5;
+    &:hover{
+        cursor: pointer;
+        opacity: 1;
+    }
+}
+#form-screen-datepicker{
+    input{
+        background-color: transparent;
+        pointer-events:none;
+    }
+    .calendar-outer{
+        top: 50px;
+    }
+}

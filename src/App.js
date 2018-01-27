@@ -9,8 +9,8 @@ import FormScreen from "./components/FormScreen/FormScreen";
 class App extends Component {
   render() {
     return (
-     // <MainScreen/>
-     <FormScreen date = {new Date()}/>
+     //<MainScreen/>
+     <FormScreen date = {new Date()} type = "new"/>
     );
   }
 }

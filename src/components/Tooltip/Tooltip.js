@@ -13,7 +13,7 @@ export default class Tooltip extends Component{
           len = users.length;
         return (
             <div 
-                className = {`tooltip ${this.props.visible?"visible":"hidden"}`}
+                className = {`my-tooltip ${this.props.visible?"visible":"hidden"}`}
             >
                 <div className ="tooltip-title">{this.props.title}</div>
                 {this.props.disabled? 

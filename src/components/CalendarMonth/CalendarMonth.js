@@ -9,8 +9,6 @@ export default class CalendarMonth extends React.Component{
   }
   _isCurDay(day){
     let now = new Date();
-    if(now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate()){
-    }
     return (now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate())
   }
   render(){

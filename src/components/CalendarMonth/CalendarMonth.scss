@@ -13,6 +13,7 @@
 	text-transform: capitalize;
 	font-weight: bold;
 	margin-bottom: 6px;
+	text-align: center;
 }
 .calendar-month-week{
 	width: 100%;
@@ -26,6 +27,9 @@
 	display: inline-block;
 	position: relative;
 	flex-basis:calc(100%/7);
+	text-align: center;
+	
+
 }
 .calendar-month-day-outer{
 	display: flex;
@@ -38,6 +42,8 @@
 	display: inline-block;
 	flex-basis:calc(100%/7);
 	border-radius: 4px;
+	text-align: center;
+
 	&.holiday{
 		color:red;
 	}

@@ -13,6 +13,10 @@
 }
 .form-outer{
 	margin:32px 16%;
+    //border: 1px solid #E9ECEF; 
+    .form-inline label{
+        justify-content:flex-start;
+    }
 }
 .form-title{
 	font-size:20px;
@@ -36,6 +40,14 @@
     }
 }
 .control-label{
-    //justify-content:flex-start !important;
     font-weight: bold;
+}
+#form-screen-datepicker{
+    input{
+        background-color: transparent;
+        pointer-events:none;
+    }
+    .calendar-outer{
+        top: 50px;
+    }
 }

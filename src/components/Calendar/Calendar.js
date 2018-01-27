@@ -7,11 +7,19 @@ export default class Calendar extends React.Component{
     super(props);
   }
   render(){
-    let prev = new Date(),
-        next = new Date(),
-        cur = this.props.date;
-        prev.setMonth(cur.getMonth() - 1);
-        next.setMonth(cur.getMonth() + 1);
+    let prev = new Date(this.props.date),
+      next = new Date(this.props.date),
+      cur = this.props.date,
+      curMonth = cur.getMonth();
+    prev.setMonth(curMonth - 1);
+    next.setMonth(curMonth + 1);
+    if (curMonth === 0){
+      prev.setFullYear(cur.getFullYear() - 1)
+    }
+    else if(curMonth === 11){
+      next.setFullYear(cur.getFullYear() + 1)
+    }
+
     return (
     <div
       className = "calendar-outer">
