@@ -129,6 +129,7 @@ export default class DiagrammeRoom extends Component{
     }
 
     insertSplitter(cells){
+      console.log("PRE",cells)
       let s = this.props.splitter,
       ssum = s.getHours()*60 + s.getMinutes()
       return R.flatten(cells.map((cell,index) => {
@@ -136,6 +137,7 @@ export default class DiagrammeRoom extends Component{
          let csumStart = cell.hstart*60 + cell.mstart,
           csumEnd = cell.hend*60 + cell.mend
          if(csumStart < ssum && csumEnd > ssum){
+            console.log("INDISE",cell,s)
             return [
             {
               hstart: cell.hstart,
@@ -158,9 +160,7 @@ export default class DiagrammeRoom extends Component{
           ]
          }
         }
-        else{
-          return cell;
-        }
+       return cell;
       }))
     }
 
@@ -178,6 +178,7 @@ export default class DiagrammeRoom extends Component{
       return minuteWidth * ((hend*60 + mend)-(hstart*60 + mstart));
     }
     render(){
+      //console.log("R",this.insertSplitter(this.splitEmpty(this.getCells())))
         return (
             <div className = "diagramme-room">
             {this.insertSplitter(this.splitEmpty(this.getCells())).map((cell,index) => {

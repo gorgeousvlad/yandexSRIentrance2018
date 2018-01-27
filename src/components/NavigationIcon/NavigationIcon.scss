@@ -1,3 +1,4 @@
+@import '../../styles/mixins';
 .navigation-icon{
   display: inline-flex;
   justify-content:center;
@@ -7,13 +8,15 @@
   height: 24px;
   border-radius: 50%;
   background-color:rgba(233,236,239,1);
-  opacity: 0.7;
-  &:hover{
-   opacity: 1;
-   cursor:pointer;
-  }
+  @include hover-opacity();
+  // opacity: 0.7;
+  // &:hover{
+  //  opacity: 1;
+  //  cursor:pointer;
+  // }
   &.forward{}
   &.backward{}
+  &.closeicon{}
   &.edit{
     position: absolute;
     top: 8px;

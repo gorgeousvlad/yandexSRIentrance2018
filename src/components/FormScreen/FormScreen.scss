@@ -1,0 +1,41 @@
+@import '../../styles/mixins';
+.spec{
+	    display: inline-block;
+    width: auto;
+    vertical-align: middle;padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+.form-outer{
+	margin:32px 16%;
+}
+.form-title{
+	font-size:20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content:space-between;
+	align-items:center;
+}
+.calendar-icon{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    left:-24px;
+    z-index:10;
+    opacity: 0.5;
+    &:hover{
+        cursor: pointer;
+        opacity: 1;
+    }
+}
+.control-label{
+    //justify-content:flex-start !important;
+    font-weight: bold;
+}

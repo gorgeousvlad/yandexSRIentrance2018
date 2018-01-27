@@ -27,14 +27,14 @@ let events = [
 		title:"Встреча одноклассников",
 		room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
 	},
-	// {
-	// 	id:3,
-	// 	dateStart: new Date(Date.parse("January 26, 2011 18:00:00")),
-	// 	dateEnd: new Date(Date.parse("January 26, 2011 19:00:00")),
-	// 	users:[{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}],
-	// 	title:"Собрание js",
-	// 	room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
-	// },
+	{
+		id:3,
+		dateStart: new Date(Date.parse("January 26, 2011 18:30:00")),
+		dateEnd: new Date(Date.parse("January 26, 2011 19:00:00")),
+		users:[{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}],
+		title:"Собрание js",
+		room:{id:1,title:"Ржавый Фред",capacity:6,floor:7}
+	},
 	{
 		id:4,
 		dateStart: new Date(Date.parse("January 26, 2011 22:00:00")),
@@ -45,7 +45,7 @@ let events = [
 	},
 	{
 		id:5,
-		dateStart: new Date(Date.parse("January 26, 2011 08:30:00")),
+		dateStart: new Date(Date.parse("January 26, 2011 09:30:00")),
 		dateEnd: new Date(Date.parse("January 26, 2011 10:00:00")),
 		users:[{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}],
 		title:"Собрание js",

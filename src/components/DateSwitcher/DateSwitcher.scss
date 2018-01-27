@@ -1,15 +1,4 @@
-@mixin hover-blue-text(){
-		&:hover{
-			color:#0070E0;
-			cursor: pointer;
-	}
-}
-@mixin hover-opacity(){
-		&:hover{
-			opacity:1;
-			cursor: pointer;
-	}
-}
+@import './../../styles/mixins';
 .date-switcher-outer{
 	position: relative;
 	display: inline-block;

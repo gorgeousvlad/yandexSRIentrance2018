@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Header from "./components/Header/Header";
-import MainContainer from "./components/MainContainer/MainContainer"
 import './styles/mixins.scss';
 import './App.scss';
+import MainScreen from "./components/MainScreen/MainScreen";
+import FormScreen from "./components/FormScreen/FormScreen";
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-       <Header needButton = {true}/>
-       <MainContainer/>
-      </div>
+     // <MainScreen/>
+     <FormScreen date = {new Date()}/>
     );
   }
 }

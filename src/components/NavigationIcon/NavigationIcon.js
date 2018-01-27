@@ -3,6 +3,7 @@ import './NavigationIcon.scss';
 import edit from './../../assets/edit.svg';
 import arrowback from './../../assets/arrowback.svg';
 import arrowfor from './../../assets/arrowfor.svg';
+import closeicon from './../../assets/closeicon.svg';
 export default class NavigationIcon extends React.Component{
 
   constructor (props){
@@ -10,7 +11,8 @@ export default class NavigationIcon extends React.Component{
     this.icons = {
     	"edit":edit,
     	"forward":arrowfor,
-    	"backward":arrowback
+    	"backward":arrowback,
+      "closeicon":closeicon
     }
   }
   render(){
