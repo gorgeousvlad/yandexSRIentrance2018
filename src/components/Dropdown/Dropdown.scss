@@ -1,0 +1,10 @@
+.dropdown-selected{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	z-index:5;
+	.user{
+		margin-top: 12px;
+		margin-right: 4%;
+	}
+}

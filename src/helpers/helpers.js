@@ -31,6 +31,6 @@ export function getWeek() {
 	return calendar_days;
 }
 export function validateTime(time){
-	return /([0-2][0-9])\:([0-5][0-9])/.test(time)
+	return /^([0-2][0-9])\:([0-5][0-9])$/.test(time)
 }
 

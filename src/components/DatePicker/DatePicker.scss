@@ -2,8 +2,10 @@
     display: flex;
     align-items:center;
     justify-content:center;
-    position: relative;
-    left:-24px;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translateY(-50%);
     z-index:10;
     opacity: 0.5;
     &:hover{
@@ -11,10 +13,12 @@
         opacity: 1;
     }
 }
+
 #form-screen-datepicker{
     input{
         background-color: transparent;
         pointer-events:none;
+        border-radius: 3px;
     }
     .calendar-outer{
         top: 50px;

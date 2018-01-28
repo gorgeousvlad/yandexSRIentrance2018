@@ -42,7 +42,49 @@
 .control-label{
     font-weight: bold;
 }
+.my-row{
+  display: flex;
+  margin:0;
+}
+.input-theme, {
+  width: 48%;
+  margin-right: 3.7%;
+  min-width: 195px;
+}
+.input-date{
+  width: 27%;
+  margin-right: 2%;
+  min-width: 140px;
+}
+.input-dash{
+  width: 2.5%;
+  text-align: center;
+  font-weight: bold;
+  p{
+    line-height: 50px;
+  }
+}
+.input-time{
+  width: 8%;
+  min-width: 62px;
+}
+.input-dropdown{
+  width: 46%;
+  .Select{
+    height: 38px;
+    font-size: 13px;
+  }
+}
+.form-group{
+  input,label{
+    font-size: 0.9em !important;
+  }
+  input{
+    height: 38px;
+  }
+}
 #form-screen-datepicker{
+    width: 30%;
     input{
         background-color: transparent;
         pointer-events:none;

@@ -4,13 +4,36 @@
 			cursor: pointer;
 	}
 }
+
 @mixin box-shadow-white(){
 	box-shadow: 0 1px 10px rgba(0,44,92,0.28);
 }
+
 @mixin hover-opacity(){
 		opacity: 0.7;
 		&:hover{
 			opacity:1;
 			cursor: pointer;
+	}
+}
+
+@mixin scrollbar($class){
+	.#{$class}::-webkit-scrollbar-track
+	{
+		border-radius: 100px;
+		background-color: white;
+	}
+
+	.#{$class}::-webkit-scrollbar
+	{
+		width: 8px;
+		background-color: white;
+	}
+	.#{$class}::-webkit-scrollbar-thumb
+	{
+		border-radius: 100px;
+		width: 8px;
+		height: 40px;
+		background-color: #D5DFE9;
 	}
 }
