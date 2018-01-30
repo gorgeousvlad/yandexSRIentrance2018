@@ -8,9 +8,13 @@ export default class DateSwitcher extends React.Component{
   constructor (props){
     super(props);
   }
+   _isCurDay(day){
+    let now = new Date();
+    return (now.getFullYear() === day.getFullYear() && now.getMonth() === day.getMonth() && now.getDate() === day.getDate())
+  }
   _getLabel(curDay){
     return `${curDay.getDate()} ${getMonthNameDecl(curDay.getMonth()).slice(0,3)}`+
-    `${curDay.getDay() === new Date().getDay()? " · Сегодня":""}`
+    `${this._isCurDay(curDay)? " · Сегодня":""}`
   }
   _getDate(cur,days){
     let next = new Date(cur);

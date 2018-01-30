@@ -16,7 +16,6 @@ const R = require("ramda");
 
 export default class MainForm extends Component {
   constructor(props){
-  	console.log("PORPS",props)
   	super(props)
   	this.state = {
   		type:this.props.type,
@@ -40,8 +39,8 @@ export default class MainForm extends Component {
 				.map((e,index)=>{
 				e.dateStart = new Date(e.dateStart);
 				e.dateEnd = new Date((e.dateEnd));
-				return e
-			})
+				return e})
+				.slice(0,3)
   	}
   	this.timeMask = {
 			'h': {
@@ -75,13 +74,12 @@ export default class MainForm extends Component {
 	 			case "create":{
 	 				let valRes = this.validateForm()
 	 				if (!Object.keys(valRes).filter((k)=>!valRes[k]).length){
-	 					console.log("COMPOSE",this.composeEvent())
 	 					this.props.createEvent(this.composeEvent());
 	 					this.props.eventCreated()
 	 					break
 	 				}
 
-	 				else this.setState(valRes,()=>console.log(this.state))
+	 				else this.setState(valRes)
 	 				break;
 	 			}
 	 			case "delete":{
@@ -106,14 +104,12 @@ export default class MainForm extends Component {
   	return validate(R.clone(this.state));
   }
   composeEvent(){
-  	console.log("STATE",this.state)
   	let start = new Date(this.state.datepicker),
   		end = new Date(this.state.datepicker);
   	start.setHours(parseInt(this.state.beginning.slice(0,2)))
   	start.setMinutes(parseInt(this.state.beginning.slice(3,5)))
   	end.setHours(parseInt(this.state.end.slice(0,2)))
   	end.setMinutes(parseInt(this.state.end.slice(3,5)))
-  	console.log("SED",start,end)
   	return Object.assign({},
   		{
   		id:Math.max(...this.props.events.map((e)=>e.id)) + 1,

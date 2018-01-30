@@ -31,6 +31,7 @@ export default class Calendar extends React.Component{
             date = {date}
             showCur = {index === 1}
             onDateChange = {this.props.onDateChange}
+            hideCalendar = {this.props.hideCalendar}
           />
         })
       }

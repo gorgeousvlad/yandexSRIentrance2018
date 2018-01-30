@@ -33,8 +33,7 @@
 	margin: 0 12.5px;
 	font-size: 15px;
 	font-weight: bold;
-	// &:hover{
-	// 	color:#0070E0;
-	// }
+	min-width: 126px;
+    text-align: center;
 	@include hover-blue-text();
 }

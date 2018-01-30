@@ -8,7 +8,8 @@ import {
   REMOVE_ALL_BUSY,
   CANCEL_EVENT,
   EVENT_CREATED,
-  SHOW_CREATED_MODAL
+  SHOW_CREATED_MODAL,
+  SET_DATE
 } from '../actions/actions'
 
 function roomsState(state = {
@@ -71,8 +72,12 @@ function roomsByFloor(state = {}, action) {
   }
 }
 
+
 function currentDate(state = new Date(), action) {
   switch (action.type) {
+    case SET_DATE:
+    console.log("SET_DATE",action)
+    return action.date
   default:
     return state
   }

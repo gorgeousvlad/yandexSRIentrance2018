@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from "../Header/Header";
-import {setHoveredRoom,toCreateEvent} from "../../actions/actions"
+import {setHoveredRoom,toCreateEvent,setDate} from "../../actions/actions"
 import MainScreen from "../MainScreen/MainScreen"
+import {getDateKey,eventsByDate} from '../../helpers/helpers.js'
+
 
 
 let mainsmart  = (props) => {
@@ -35,6 +37,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     toCreateEvent: (event)=>{
       dispatch(toCreateEvent(event))
+    },
+    setDate: (date)=>{
+      dispatch(setDate(date))
     }
   }
 }

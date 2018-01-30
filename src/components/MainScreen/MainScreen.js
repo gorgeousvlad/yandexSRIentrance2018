@@ -27,7 +27,7 @@ export default class MainScreen extends Component{
 			<div className = "left-col">
 			<DateBlock 
 				date = {this.props.currentDate} 
-				onDateChange = {(date)=>console.log("date change",date)}/>
+				onDateChange = {this.props.setDate}/>
 			<RoomContainer 
 				hover = {this.props.roomsState.hoveredRoom} 
 				allBusy = {this.props.roomsState.allBusy} 

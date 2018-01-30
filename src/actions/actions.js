@@ -8,6 +8,7 @@ export const CANCEL_EVENT = 'CANCEL_EVENT'
 export const CREATE_EVENT = 'CREATE_EVENT'
 export const EVENT_CREATED = 'EVENT_CREATED'
 export const SHOW_CREATED_MODAL = 'SHOW_CREATED_MODAL'
+export const SET_DATE = 'SET_DATE'
 
 
 
@@ -68,6 +69,13 @@ export function showCreatedModal(event) {
   return {
     type: SHOW_CREATED_MODAL,
     event
+  }
+}
+
+export function setDate(date) {
+  return {
+    type: SET_DATE,
+    date
   }
 }
 

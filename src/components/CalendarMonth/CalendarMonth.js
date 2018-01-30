@@ -38,8 +38,7 @@ export default class CalendarMonth extends React.Component{
         ...R.range(MONTH_LEN - offset + 1,MONTH_LEN)
           .map((d,index)=> new Date(cur.getFullYear(),cur.getMonth() + 1,index + 1))
       ]
-    }
-        
+    }    
     return (
       <div className = "calendar-month-outer">
         <div className = "calendar-month-title">
@@ -65,7 +64,13 @@ export default class CalendarMonth extends React.Component{
             ` ${(day.getDay() === 6 || day.getDay() === 0)? "holiday":""}` +
             ` ${this._isCurDay(day) && this.props.showCur? "now" : ""}`
             }
-            onClick = {this.props.onDateChange.bind(null,day)}
+            onClick = {(()=>{
+                if (this.props.hideCalendar){
+                  this.props.hideCalendar()
+                }
+                this.props.onDateChange(day)
+              }).bind(this)
+            }
             >{day.getDate()}
             </div>
             )

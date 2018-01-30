@@ -34,3 +34,18 @@ export function validateTime(time){
 	return /^([0-2][0-9])\:([0-5][0-9])$/.test(time)
 }
 
+export function getDateKey(date){
+	return`${date.getFullYear()}${date.getMonth()}${date.getDate()}`
+}
+
+export function eventsByDate (events){
+		return events.reduce((acc,cur)=> {
+			let cur_ = new Date(cur.dateStart) 
+			let key = getDateKey(cur_);
+			if (!(key in acc)){
+				acc[key] = []
+			}
+			acc[key].push(cur)
+			return acc
+		},{})
+	}

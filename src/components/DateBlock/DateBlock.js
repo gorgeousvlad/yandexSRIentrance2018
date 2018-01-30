@@ -22,6 +22,7 @@ export default class DateBlock extends React.Component{
         this.state.calendar?
         <Calendar 
         	{...this.props}
+          hideCalendar = {(()=>this.setState({calendar:false})).bind(this)}
         />:
         null
       }

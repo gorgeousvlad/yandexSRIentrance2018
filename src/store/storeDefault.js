@@ -1,4 +1,5 @@
 import testData from "./testdata.json"
+import {getDateKey} from "../helpers/helpers"
 
 
 const roomsByFloor = (rooms) =>{
@@ -17,4 +18,5 @@ let storeDefault = Object.assign(
 	testData.testData,
 	{roomsByFloor:roomsByFloor(testData.testData.rooms)}
 	);
+console.log("STRORE",storeDefault)
 export default storeDefault;
