@@ -49,10 +49,18 @@
 }
 .input-room{
   width: 48%;
+  .help-block{
+    top: 32%;
+  }
 
 }
 .input-room,.input-theme,.input-dropdown{
   min-width: 307px;
+}
+.help-block{
+  position: absolute;
+  color:#a94442;
+  font-size:0.9em;
 }
 .form-group{
   input,label{
@@ -72,3 +80,9 @@
         top: 50px;
     }
 }
+.fg-error{
+  input{
+    border-color:#a94442;
+  }
+}
+

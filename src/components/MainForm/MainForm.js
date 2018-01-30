@@ -8,7 +8,7 @@ import RoomChoiceBlock from "../RoomChoiceBlock/RoomChoiceBlock";
 import User from "../User/User";
 import ButtonBar from "../ButtonBar/ButtonBar";
 import MaskedInput from 'react-maskedinput';
-import {Form,Row,FormGroup,Col,FormControl,ControlLabel,InputGroup} from 'react-bootstrap';
+import {Form,Row,FormGroup,Col,FormControl,ControlLabel,InputGroup,HelpBlock} from 'react-bootstrap';
 import {validate} from '../../helpers/validate.js'
 import {validateTime,getHourMinute,timeFromRange,getMonthNameDecl,getDecl} from '../../helpers/helpers.js'
 import './MainForm.scss';
@@ -27,7 +27,7 @@ export default class MainForm extends Component {
   		beginning:getHourMinute(this.props.event.dateStart),
   		beginningValid:true,
   		end:getHourMinute(this.props.event.dateEnd),
-  		endValid:false,
+  		endValid:true,
   		selectedUsers:[],
   		selectedUsersValid:true,
   		selectedRoom:this.props.room,
@@ -69,9 +69,13 @@ export default class MainForm extends Component {
 	 				break
 	 			}
 	 			case "create":{
-	 				if (this.validateForm()){
+	 				let valRes = this.validateForm()
+	 				console.log("Res",valRes)
+	 				if (!Object.keys(valRes).filter((k)=>!valRes[k]).length){
 	 					//create event
 	 				}
+
+	 				else this.setState(valRes,()=>console.log(this.state))
 	 				break;
 	 			}
 	 			case "delete":{
@@ -93,14 +97,15 @@ export default class MainForm extends Component {
   	this.setState({calendar:!this.state.calendar})
   }
   validateForm(){
-  	let res = validate(R.clone(this.state));
-  	console.log("RES",res)
+  	return validate(R.clone(this.state));
   }
   render() {
     return (
    	<Form>
    		<div className = "my-row">
-	       		<FormGroup controlId = "input-theme" className = "input-theme">
+	       		<FormGroup 
+	       			controlId = "input-theme" 
+	       			className = {`input-theme ${!this.state.themeValid?"fg-error":""}`}>
 	      				<ControlLabel>Тема</ControlLabel>
 	      				<FormControl 
 	      					type="text" 
@@ -108,16 +113,21 @@ export default class MainForm extends Component {
 	      					onChange = {this._onChange.bind(this,"theme")} 
 	      					placeholder="О чем будете говорить"
 	      				/>
+	      				<HelpBlock>{!this.state.themeValid?"Встрече нужна тема":""}</HelpBlock>
+
 	    			</FormGroup>
-	    			<FormGroup bsSize = "small" controlId = "input-datepicker" id = "form-screen-datepicker" className = "input-date">
+	    			<FormGroup bsSize = "small" controlId = "input-datepicker" id = "form-screen-datepicker" 
+	    			className = {`input-date ${!this.state.datepickerValid?"fg-error":""}`}>
 	      				<ControlLabel>Дата</ControlLabel>
 	      				<DatePicker
 	      					date = {this.state.datepicker}
 	      					onDateChange = {R.curry(this._onChange.bind(this))("datepicker")}
 	      				/>
+	      				<HelpBlock>{!this.state.datepickerValid?"Это время уже минуло":""}</HelpBlock>
 	      		</FormGroup>
       		
-	       		<FormGroup controlId = "input-beginning" className = "input-time">
+	       		<FormGroup controlId = "input-beginning" 
+	    			className = {`input-time ${!this.state.beginningValid?"fg-error":""}`}>
 	      				<ControlLabel>Начало</ControlLabel>
 	      				<MaskedInput 
 	      					mask="hr:m1"
@@ -134,7 +144,8 @@ export default class MainForm extends Component {
 	      				<ControlLabel>{' '}</ControlLabel>
 	      				<FormControl.Static> — </FormControl.Static>
 	    			</FormGroup>
-	    			<FormGroup controlId = "input-end" className = "input-time">
+	    			<FormGroup controlId = "input-end"
+	    			className = {`input-time ${!this.state.endValid?"fg-error":""}`}>
 	      				<ControlLabel>Конец</ControlLabel>
 	      				<MaskedInput 
 	      					mask="tr:m1"
@@ -148,7 +159,8 @@ export default class MainForm extends Component {
 	    			</FormGroup>
     		</div>
     		<div className = "my-row">
-	    	<FormGroup controlId = "input-dropdown" className = "input-dropdown">
+	    	<FormGroup controlId = "input-dropdown" 
+	    	className = {`input-dropdown ${!this.state.selectedUsersValid?"fg-error":""}`}>
 	      	<ControlLabel>Участники</ControlLabel>
 	    		<Dropdown
 	    			users = {this.props.users}
@@ -175,6 +187,7 @@ export default class MainForm extends Component {
 	    			})
 	    		}
 			</div>
+				<HelpBlock>{!this.state.selectedUsersValid?"Без людей ничего не состоится":""}</HelpBlock>
 	      </FormGroup>
 	      <FormGroup bsSize = "small" controlId = "input-room" className = "input-room">
 				<ControlLabel>{`${this.state.selectedRoom? "Ваша переговорка":"Рекомендуемые переговорки"}`}</ControlLabel>
@@ -205,6 +218,7 @@ export default class MainForm extends Component {
 						)
 					}).bind(this)}
 				/>
+	      <HelpBlock>{!this.state.selectedRoomValid?"Нужно выбрать комнату":""}</HelpBlock>
   		</FormGroup>
     </div>
     <div className = "my-row">

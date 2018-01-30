@@ -29,6 +29,7 @@ export default class Calendar extends React.Component{
           return <CalendarMonth
             key = {`calendar-month-${index}`} 
             date = {date}
+            showCur = {index === 1}
             onDateChange = {this.props.onDateChange}
           />
         })

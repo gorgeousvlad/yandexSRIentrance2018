@@ -63,7 +63,7 @@ export default class CalendarMonth extends React.Component{
             className = {"calendar-month-day" + 
             ` ${day.getMonth() !== cur.getMonth()?"gray":""}`+
             ` ${(day.getDay() === 6 || day.getDay() === 0)? "holiday":""}` +
-            ` ${this._isCurDay(day)? "now" : ""}`
+            ` ${this._isCurDay(day) && this.props.showCur? "now" : ""}`
             }
             onClick = {this.props.onDateChange.bind(null,day)}
             >{day.getDate()}
