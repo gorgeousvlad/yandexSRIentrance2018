@@ -9,6 +9,7 @@ import User from "../User/User";
 import ButtonBar from "../ButtonBar/ButtonBar";
 import MaskedInput from 'react-maskedinput';
 import {Form,Row,FormGroup,Col,FormControl,ControlLabel,InputGroup} from 'react-bootstrap';
+import {validate} from '../../helpers/validate.js'
 import {validateTime,getHourMinute,timeFromRange,getMonthNameDecl,getDecl} from '../../helpers/helpers.js'
 import './MainForm.scss';
 const R = require("ramda");
@@ -19,18 +20,19 @@ export default class MainForm extends Component {
   	this.state = {
   		type:this.props.type,
   		theme:"",
-  		themeValid:false,
+  		themeValid:true,
   		datepicker:this.props.event.dateStart,
-  		datepickerValid:false,
+  		datepickerValid:true,
   		calendar:false,
   		beginning:getHourMinute(this.props.event.dateStart),
-  		beginningValid:false,
+  		beginningValid:true,
   		end:getHourMinute(this.props.event.dateEnd),
   		endValid:false,
   		selectedUsers:[],
-  		selectedUsersValid:false,
+  		selectedUsersValid:true,
   		selectedRoom:this.props.room,
-  		selectedRoomValid:false,
+  		selectedRoomValid:true,
+  		formValid:true,
   		recomendations :[
   			this.props.event,
   			this.props.event
@@ -59,8 +61,28 @@ export default class MainForm extends Component {
 			}
 		}
   }
- 	_onSubmit(ev){
- 		ev.preventDefault();
+ 	_onSubmit(type){
+ 		console.log("type",type)
+ 			switch(type){
+	 			case "cancel":{
+	 				//back to main
+	 				break
+	 			}
+	 			case "create":{
+	 				if (this.validateForm()){
+	 					//create event
+	 				}
+	 				break;
+	 			}
+	 			case "delete":{
+	 				//back to main
+	 				break
+	 			}
+	 			case "delete":{
+	 				//back to main
+	 				break
+	 			}
+	 		}
  	}
   _onChange(name,ev){
 
@@ -70,9 +92,13 @@ export default class MainForm extends Component {
   _toggleCalendar(){
   	this.setState({calendar:!this.state.calendar})
   }
+  validateForm(){
+  	let res = validate(R.clone(this.state));
+  	console.log("RES",res)
+  }
   render() {
     return (
-   	<Form onSubmit = {this._onSubmit.bind(this)}>
+   	<Form>
    		<div className = "my-row">
 	       		<FormGroup controlId = "input-theme" className = "input-theme">
 	      				<ControlLabel>Тема</ControlLabel>
@@ -184,7 +210,7 @@ export default class MainForm extends Component {
     <div className = "my-row">
    		<ButtonBar 
    			type = {this.props.type}
-   			onClick = {(type)=>{console.log(type)}}
+   			onClick = {this._onSubmit.bind(this)}
    		/>
 		</div>
   </Form>

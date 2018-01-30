@@ -7,8 +7,8 @@ import FormScreen from "./components/FormScreen/FormScreen";
 let event = 
 	{
 		id:1,
-		dateStart: new Date(Date.parse("January 26, 2011 11:23:00")),
-		dateEnd: new Date(Date.parse("January 26, 2011 13:47:00")),
+		dateStart: new Date(Date.parse("January 30, 2018 11:23:00")),
+		dateEnd: new Date(Date.parse("January 30, 2018 13:47:00")),
 		users:[
 		{id:1,login:"Дарт Вейдер", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
 		{id:2,login:"Чубака", homerFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="}
