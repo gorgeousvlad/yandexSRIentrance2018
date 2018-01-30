@@ -11,6 +11,7 @@ export default class DatePicker extends React.Component{
     this.state = {"calendar":false}
   }
   getDate(date){
+    console.log("DATE",this.props.date)
     return `${date.getDate()} ${getMonthNameDecl(date.getMonth())}, ${date.getFullYear()}`
   }
   toggleCalendar(){

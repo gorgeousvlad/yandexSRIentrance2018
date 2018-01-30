@@ -8,7 +8,7 @@ export default class Dropdown extends React.Component{
   constructor (props){
     super(props);
     this.state = {
-      showList:true,
+      showList:false,
       value:""
     }
   }

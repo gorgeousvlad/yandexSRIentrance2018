@@ -46,9 +46,10 @@
   display: flex;
   margin:0;
 }
-.input-theme, {
+
+.input-theme {
   width: 48%;
-  margin-right: 3.7%;
+  margin-right: 4%;
   min-width: 195px;
 }
 .input-date{
@@ -69,11 +70,16 @@
   min-width: 62px;
 }
 .input-dropdown{
-  width: 46%;
-  .Select{
-    height: 38px;
-    font-size: 13px;
-  }
+  width: 48%;
+  margin-right: 4%;
+  min-width: 307px;
+}
+.input-room{
+  width: 48%;
+
+}
+.input-room,.input-theme,.input-dropdown{
+  min-width: 307px;
 }
 .form-group{
   input,label{

@@ -33,13 +33,20 @@ let event =
 		{id:13,login:"Еарт Вейдер", homeFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
 		{id:14,login:"Шарт Вейдер", homeFloor:7,avatarUrl:"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
 		
-	]
+	],
+
+room = {
+	id: 1,
+    title: "Ржавый фред",
+    capacity: 10,
+    floor: 7
+	}
 
 class App extends Component {
   render() {
     return (
      //<MainScreen/>
-     <FormScreen event = {event} users = {users} type = "new"/>
+     <FormScreen event = {event} users = {users} room = {room} type = "new"/>
     );
   }
 }

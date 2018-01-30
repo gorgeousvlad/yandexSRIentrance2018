@@ -7,6 +7,7 @@
 	min-width: 500px;
 	min-height:202px;
 	background-color: white;
+	z-index: 100;
 	@include box-shadow-white();
 }
 .calendar-inner{
