@@ -16,7 +16,8 @@ const roomsByFloor = (rooms) =>{
 let storeDefault = Object.assign(
 	{},
 	testData.testData,
-	{roomsByFloor:roomsByFloor(testData.testData.rooms)}
+	{roomsByFloor:roomsByFloor(testData.testData.rooms)
+	}
 	);
 console.log("STRORE",storeDefault)
 export default storeDefault;

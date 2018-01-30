@@ -11,8 +11,10 @@ export default class Calendar extends React.Component{
       next = new Date(this.props.date),
       cur = this.props.date,
       curMonth = cur.getMonth();
-    prev.setMonth(curMonth - 1);
-    next.setMonth(curMonth + 1);
+    prev.setDate(1)
+    next.setDate(1)
+    prev.setMonth(prev.getMonth() - 1);
+    next.setMonth(next.getMonth() + 1);
     if (curMonth === 0){
       prev.setFullYear(cur.getFullYear() - 1)
     }

@@ -21,7 +21,13 @@ let mainsmart  = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events,
+    events: state.events.filter((ev)=>{
+      let start = new Date(ev.dateStart),
+        cur = state.currentDate;
+      return start.getFullYear() === cur.getFullYear() &&
+        start.getMonth() === cur.getMonth() &&
+        start.getDate() === cur.getDate()
+    }),
     roomsState: state.roomsState,
     handlingEvent: state.handlingEvent,
     rooms:state.rooms,
