@@ -1,12 +1,11 @@
 export const SET_HOVERED_ROOM = 'SET_HOVERED_ROOM'
 export const SET_ALL_BUSY = 'SET_ALL_BUSY'
 export const REMOVE_ALL_BUSY = 'REMOVE_ALL_BUSY'
-export const GO_TO_CREATE_FORM = 'GO_TO_CREATE_FORM'
 export const REQUEST_EVENT_CREATION = 'REQUEST_EVENT_CREATION'
 export const CREATE_EVENT = 'CREATE_EVENT'
-export const CANCEL_EVENT_CREATION = 'CANCEL_EVENT_CREATION'
-export const SWITCH_TO_EVENT_CREATION = 'SWITCH_TO_EVENT_CREATION'
-export const SWITCH_TO_EVENT_EDIT = 'SWITCH_TO_EVENT_EDIT'
+export const TO_CREATE_EVENT = 'TO_CREATE_EVENT'
+export const TO_EDIT_EVENT = 'TO_EDIT_EVENT'
+export const CANCEL_EVENT = 'CANCEL_EVENT'
 
 
 
@@ -31,20 +30,25 @@ export function removeAllBusy(id) {
   }
 }
 
-export function switchToEventCreation(eventInfo) {
+export function toCreateEvent(eventInfo) {
   return {
-    type: SWITCH_TO_EVENT_CREATION,
+    type: TO_CREATE_EVENT,
     eventInfo
   }
 }
 
-export function switchToEventEdit(eventInfo) {
+export function toEditEvent(eventInfo) {
   return {
-    type: SWITCH_TO_EVENT_EDIT,
+    type: TO_EDIT_EVENT,
     eventInfo
   }
 }
 
+export function cancelEvent() {
+  return {
+    type: CANCEL_EVENT
+  }
+}
 export function createEvent(event) {
   return {
     type: CREATE_EVENT,

@@ -34,7 +34,11 @@ export default class DiagrammeCell extends Component{
             }}
             onMouseLeave = {this._onMouseLeave.bind(this)}
             onMouseEnter = {this._onMouseEnter.bind(this)}
-            onClick = {this._onClick.bind(this)}
+            onClick = {this.props.type === "empty"?
+            this.props.toCreateEvent
+            :
+            this._onClick.bind(this)
+            }
             >
             {this.props.type === 'empty'? "+":
             <Tooltip 

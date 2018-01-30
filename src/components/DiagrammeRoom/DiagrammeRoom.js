@@ -129,7 +129,6 @@ export default class DiagrammeRoom extends Component{
     }
 
     insertSplitter(cells){
-      console.log("PRE",cells)
       let s = this.props.splitter,
       ssum = s.getHours()*60 + s.getMinutes()
       return R.flatten(cells.map((cell,index) => {
@@ -137,7 +136,6 @@ export default class DiagrammeRoom extends Component{
          let csumStart = cell.hstart*60 + cell.mstart,
           csumEnd = cell.hend*60 + cell.mend
          if(csumStart < ssum && csumEnd > ssum){
-            console.log("INDISE",cell,s)
             return [
             {
               hstart: cell.hstart,
@@ -177,8 +175,22 @@ export default class DiagrammeRoom extends Component{
         {hend, hstart, mend, mstart} = cell;
       return minuteWidth * ((hend*60 + mend)-(hstart*60 + mstart));
     }
+    getCellCreationInfo(cell){
+      let clone = R.clone(cell),
+        start  = new Date(this.props.date),
+        end = new Date(this.props.date),
+        garbage = ["hstart","mstart","hend","mend","disabled"]
+      start.setHours(cell.hstart)
+      start.setMinutes(cell.mstart)
+      end.setHours(cell.hend)
+      end.setMinutes(cell.mend)
+      clone.dateStart = start;
+      clone.dateEnd = end;
+      return Object.assign({},
+        R.omit(garbage,clone),
+        {type:"create"});
+    }
     render(){
-      //console.log("R",this.insertSplitter(this.splitEmpty(this.getCells())))
         return (
             <div className = "diagramme-room">
             {this.insertSplitter(this.splitEmpty(this.getCells())).map((cell,index) => {
@@ -193,6 +205,9 @@ export default class DiagrammeRoom extends Component{
               hover = {(this.props.onRoomHover).bind(null,cell.room.id)}
               unhover = {(this.props.onRoomHover).bind(null,"")}
               eventInfo = {this.props.events.filter((e)=>e.id === cell.id)[0]}
+              toCreateEvent = {this.props.toCreateEvent.bind(null,
+                this.getCellCreationInfo(cell)
+                )}
             />
             })}
             </div>

@@ -2,10 +2,11 @@ import { combineReducers } from 'redux'
 import {
   SET_HOVERED_ROOM, 
   CREATE_EVENT,
-  SWITCH_TO_EVENT_CREATION,
-  SWITCH_TO_EVENT_EDIT,
+  TO_CREATE_EVENT,
+  TO_EDIT_EVENT,
   SET_ALL_BUSY,
-  REMOVE_ALL_BUSY
+  REMOVE_ALL_BUSY,
+  CANCEL_EVENT
 } from '../actions/actions'
 
 function roomsState(state = {
@@ -26,10 +27,11 @@ function roomsState(state = {
 
 function handlingEvent(state = {}, action) {
   switch (action.type) {
-  case SWITCH_TO_EVENT_CREATION:
-    return Object.assign({},action.eventInfo,{type:"create"})
-  case SWITCH_TO_EVENT_EDIT:
-    return Object.assign({},action.eventInfo,{type:"edit"})
+  case CANCEL_EVENT:
+  	return {}
+  case TO_CREATE_EVENT:
+  case TO_EDIT_EVENT:
+    return action.eventInfo
   default:
     return state
   }
@@ -45,6 +47,13 @@ function events(state = {}, action) {
 }
 
 function rooms(state = {}, action) {
+  switch (action.type) {
+  default:
+    return state
+  }
+}
+
+function users(state = {}, action) {
   switch (action.type) {
   default:
     return state
@@ -70,6 +79,7 @@ const rootReducer = combineReducers({
   events,
   handlingEvent,
   rooms,
+  users,
   currentDate,
   roomsByFloor
 })

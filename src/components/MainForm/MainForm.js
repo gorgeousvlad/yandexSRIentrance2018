@@ -16,6 +16,7 @@ const R = require("ramda");
 
 export default class MainForm extends Component {
   constructor(props){
+  	console.log("PORPS",props)
   	super(props)
   	this.state = {
   		type:this.props.type,
@@ -33,10 +34,14 @@ export default class MainForm extends Component {
   		selectedRoom:this.props.room,
   		selectedRoomValid:true,
   		formValid:true,
-  		recomendations :[
-  			this.props.event,
-  			this.props.event
-			]
+  		//for test
+  		recomendations :
+  			R.clone(this.props.events)
+				.map((e,index)=>{
+				e.dateStart = new Date(e.dateStart);
+				e.dateEnd = new Date((e.dateEnd));
+				return e
+			})
   	}
   	this.timeMask = {
 			'h': {
@@ -62,10 +67,9 @@ export default class MainForm extends Component {
 		}
   }
  	_onSubmit(type){
- 		console.log("type",type)
  			switch(type){
 	 			case "cancel":{
-	 				//back to main
+	 				this.props.cancelEvent()
 	 				break
 	 			}
 	 			case "create":{
@@ -82,7 +86,7 @@ export default class MainForm extends Component {
 	 				//back to main
 	 				break
 	 			}
-	 			case "delete":{
+	 			case "save":{
 	 				//back to main
 	 				break
 	 			}

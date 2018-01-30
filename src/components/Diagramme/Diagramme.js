@@ -30,6 +30,7 @@ export default class Diagramme extends Component{
                         splitter = {this.props.splitter}
                         hours = {17}
                         onRoomHover = {this.props.onRoomHover}
+                        toCreateEvent = {this.props.toCreateEvent}
                       />
                     })
                   }

@@ -64,30 +64,47 @@
 			],
 		"rooms" : [
 		{
-			"id": 1,
-	    "title": "Ржавый фред",
-	    "capacity": 10,
-	    "floor": 7
-		},
-		{
-			"id": 2,
-	    "title": "Прачечная",
-	    "capacity": 6,
-	    "floor": 7
-		},
-		{
-			"id": 3,
-	    "title": "Желтый дом",
-	    "capacity":6,
-	    "floor": 6
-		},
-		{
-			"id": 4,
-	    "title": "Джокер",
-	    "capacity":3,
-	    "floor": 5
-		}
+				"id": 1,
+		    "title": "Ржавый фред",
+		    "capacity": 10,
+		    "floor": 7
+			},
+			{
+				"id": 2,
+		    "title": "Прачечная",
+		    "capacity": 6,
+		    "floor": 7
+			},
+			{
+				"id": 3,
+		    "title": "Желтый дом",
+		    "capacity":6,
+		    "floor": 6
+			},
+			{
+				"id": 4,
+		    "title": "Джокер",
+		    "capacity":3,
+		    "floor": 5
+			}
+		],
+		"users" :[
+			{"id":1,"login":"Дарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":2,"login":"Чубака", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":3,"login":"Карт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":4,"login":"Март Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":5,"login":"Ларт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":6,"login":"Варт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":7,"login":"Ыарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":8,"login":"Оарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":9,"login":"Иарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":10,"login":"Фарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":11,"login":"Йарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":12,"login":"Уарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":13,"login":"Еарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="},
+			{"id":14,"login":"Шарт Вейдер", "homeFloor":7,"avatarUrl":"https://avatars3.githubusercontent.com/u/15365?s=460&v="}	
 	]
+
 	}
 	
 }

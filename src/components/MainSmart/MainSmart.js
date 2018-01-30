@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from "../Header/Header";
-import {setHoveredRoom} from "../../actions/actions"
+import {setHoveredRoom,toCreateEvent} from "../../actions/actions"
 import MainScreen from "../MainScreen/MainScreen"
 
 
 let mainsmart  = (props) => {
-    return (
+    return Object.keys(props.handlingEvent).length?
+    null
+    :(
       <div className="main-screen">
        <Header needButton = {true}/>
        <MainScreen {...props}/>
@@ -28,8 +30,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onRoomHover: (id) => {
-      console.log('dispatch',id)
       dispatch(setHoveredRoom(id))
+    },
+    toCreateEvent: (event)=>{
+      dispatch(toCreateEvent(event))
     }
   }
 }

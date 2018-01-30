@@ -7,27 +7,21 @@ import NavigationIcon from "../NavigationIcon/NavigationIcon";
 export default class FromScreen extends Component {
   constructor(props){
   	super(props)
-  	this.state = {
-  		type:this.props.type
-  	}
   }
   render() {
     return (
-    Object.keys(this.props.handlingEvent).length?
       <div className="form-screen">
        <Header needButton = {false}/>
        <div className = "form-outer">
        	<div className = "form-title">
        		<span>{`${this.props.type === "new"? "Новая встреча":"Редактирование встречи"}`}</span>
-       		<NavigationIcon type = "closeicon"/>
+       		<NavigationIcon type = "closeicon" onClick = {this.props.cancelEvent}/>
        	</div>
        	<div className = "form-wrapper">
        		<MainForm {...this.props}/>
 	      </div>
        </div>
       </div>
-    :
-    null
     );
   }
 }

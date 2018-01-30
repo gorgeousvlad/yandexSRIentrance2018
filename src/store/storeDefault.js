@@ -1,4 +1,4 @@
-import testData from "../helpers/test.json"
+import testData from "./testdata.json"
 
 
 const roomsByFloor = (rooms) =>{

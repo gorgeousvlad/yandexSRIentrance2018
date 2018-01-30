@@ -13,7 +13,6 @@ export default class MainScreen extends Component{
 	constructor(props){
 		super(props);
 		this.state = {}
-		//this.roomsByFloor = this.roomsByFloor(props.rooms)
 		this.events = 
 			R.clone(this.props.events)
 			.map((e,index)=>{
@@ -22,18 +21,7 @@ export default class MainScreen extends Component{
 			return e
 		})
 	}
-	// roomsByFloor(rooms){
-	// 	return rooms.reduce((acc,cur)=> {
-	// 		let floor = cur.floor;
-	// 		if (!(floor in acc)){
-	// 			acc[floor] = []
-	// 		}
-	// 		acc[floor].push(cur)
-	// 		return acc
-	// 	},{})
-	// }
 	render(){
-		console.log("HHHHH",this.props)
 		return (
 		<div className = "main-container">
 			<div className = "left-col">
@@ -54,7 +42,7 @@ export default class MainScreen extends Component{
 						splitter = {this.props.currentDate}
 						events = {this.events}
 						roomsByFloor = {this.props.roomsByFloor}
-						addEvent = {()=>console.log("addEvent")}
+						toCreateEvent = {this.props.toCreateEvent}
 						editEvent = {()=>console.log("editEvent")}
 						onRoomHover = {this.props.onRoomHover}
 						showTooltip = {()=>console.log("showTooltip")}
