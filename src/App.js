@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './styles/mixins.scss';
 import './App.scss';
-import MainScreen from "./components/MainScreen/MainScreen";
-import FormScreen from "./components/FormScreen/FormScreen";
+import MainSmart from "./components/MainSmart/MainSmart";
+import FormSmart from "./components/FormSmart/FormSmart";
 
 let event = 
 	{
@@ -45,8 +45,12 @@ room = {
 class App extends Component {
   render() {
     return (
+    	<div>
+    		<MainSmart/>
+    		<FormSmart/>
+    	</div>
      //<MainScreen/>
-     <FormScreen event = {event} users = {users} room = {room} type = "create"/>
+     //<FormScreen event = {event} users = {users} room = {room} type = "create"/>
     );
   }
 }

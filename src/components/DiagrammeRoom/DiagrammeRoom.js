@@ -190,8 +190,8 @@ export default class DiagrammeRoom extends Component{
               })()}
               width = {`${this.widthInMinutes(cell)}%`}
               border = {(cell.mstart && !cell.disabled)? "white" : `${DiagrammeRoom.BORDER_COLOR}`}
-              hover = {((room)=>{console.log(room)}).bind(null,cell.room)}
-              unhover = {(()=>{console.log("unhover")})}
+              hover = {(this.props.onRoomHover).bind(null,cell.room.id)}
+              unhover = {(this.props.onRoomHover).bind(null,"")}
               eventInfo = {this.props.events.filter((e)=>e.id === cell.id)[0]}
             />
             })}

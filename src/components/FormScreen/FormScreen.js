@@ -13,6 +13,7 @@ export default class FromScreen extends Component {
   }
   render() {
     return (
+    Object.keys(this.props.handlingEvent).length?
       <div className="form-screen">
        <Header needButton = {false}/>
        <div className = "form-outer">
@@ -25,6 +26,8 @@ export default class FromScreen extends Component {
 	      </div>
        </div>
       </div>
+    :
+    null
     );
   }
 }
