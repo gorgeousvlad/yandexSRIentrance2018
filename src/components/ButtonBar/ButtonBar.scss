@@ -1,0 +1,16 @@
+@import './../../styles/mixins';
+.button-group{
+	display: flex;
+	justify-content:center;
+	width: 100%;
+	margin-top: 377px;
+	button{
+		margin-right: 16px;
+		height: 36px;
+		font-size: 0.9em;
+		line-height: 1em;
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}

@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
      //<MainScreen/>
-     <FormScreen event = {event} users = {users} room = {room} type = "new"/>
+     <FormScreen event = {event} users = {users} room = {room} type = "create"/>
     );
   }
 }

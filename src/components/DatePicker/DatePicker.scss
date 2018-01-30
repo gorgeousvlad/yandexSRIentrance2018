@@ -1,4 +1,15 @@
-.calendar-icon{
+
+
+#form-screen-datepicker{
+    input{
+        background-color: transparent;
+        pointer-events:none;
+        border-radius: 3px;
+    }
+    .calendar-outer{
+        top: 50px;
+    }
+    .calendar-icon{
     display: flex;
     align-items:center;
     justify-content:center;
@@ -12,15 +23,5 @@
         cursor: pointer;
         opacity: 1;
     }
-}
-
-#form-screen-datepicker{
-    input{
-        background-color: transparent;
-        pointer-events:none;
-        border-radius: 3px;
-    }
-    .calendar-outer{
-        top: 50px;
-    }
+  }
 }
