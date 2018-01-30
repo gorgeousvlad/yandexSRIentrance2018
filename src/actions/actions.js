@@ -2,10 +2,12 @@ export const SET_HOVERED_ROOM = 'SET_HOVERED_ROOM'
 export const SET_ALL_BUSY = 'SET_ALL_BUSY'
 export const REMOVE_ALL_BUSY = 'REMOVE_ALL_BUSY'
 export const REQUEST_EVENT_CREATION = 'REQUEST_EVENT_CREATION'
-export const CREATE_EVENT = 'CREATE_EVENT'
 export const TO_CREATE_EVENT = 'TO_CREATE_EVENT'
 export const TO_EDIT_EVENT = 'TO_EDIT_EVENT'
 export const CANCEL_EVENT = 'CANCEL_EVENT'
+export const CREATE_EVENT = 'CREATE_EVENT'
+export const EVENT_CREATED = 'EVENT_CREATED'
+export const SHOW_CREATED_MODAL = 'SHOW_CREATED_MODAL'
 
 
 
@@ -55,4 +57,18 @@ export function createEvent(event) {
     event
   }
 }
+
+export function eventCreated() {
+  return {
+    type: EVENT_CREATED
+  }
+}
+
+export function showCreatedModal(event) {
+  return {
+    type: SHOW_CREATED_MODAL,
+    event
+  }
+}
+
 

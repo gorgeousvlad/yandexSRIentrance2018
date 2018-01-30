@@ -3,7 +3,6 @@ import './User.scss';
 import {timeFromRange,getMonthNameDecl} from '../../helpers/helpers.js'
 import NavigationIcon from "../NavigationIcon/NavigationIcon";
 export default function User(props){
-  console.log("URL",`url${props.avatarUrl}`)
   return (
     <div className = {`user ${props.closable}`}>
         <div className = "user-avatar" style = {{backgroundImage:`url(${props.avatarUrl})`}}></div>

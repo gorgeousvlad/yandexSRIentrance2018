@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Header from "../Header/Header";
 import FormScreen from "../FormScreen/FormScreen";
-import {cancelEvent} from "../../actions/actions"
+import {cancelEvent,createEvent,eventCreated} from "../../actions/actions"
 const R = require("ramda")
 
 let formsmart  = (props) => {
@@ -32,7 +32,13 @@ const mapDispatchToProps = (dispatch) => {
   return {
     cancelEvent: () => {
       dispatch(cancelEvent())
-    }
+    },
+    createEvent: (event) => {
+      dispatch(createEvent(event))
+    },
+    eventCreated: () => {
+      dispatch(eventCreated())
+    },
   }
 }
 

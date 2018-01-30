@@ -74,9 +74,11 @@ export default class MainForm extends Component {
 	 			}
 	 			case "create":{
 	 				let valRes = this.validateForm()
-	 				console.log("Res",valRes)
 	 				if (!Object.keys(valRes).filter((k)=>!valRes[k]).length){
-	 					//create event
+	 					console.log("COMPOSE",this.composeEvent())
+	 					this.props.createEvent(this.composeEvent());
+	 					this.props.eventCreated()
+	 					break
 	 				}
 
 	 				else this.setState(valRes,()=>console.log(this.state))
@@ -102,6 +104,25 @@ export default class MainForm extends Component {
   }
   validateForm(){
   	return validate(R.clone(this.state));
+  }
+  composeEvent(){
+  	console.log("STATE",this.state)
+  	let start = new Date(this.state.datepicker),
+  		end = new Date(this.state.datepicker);
+  	start.setHours(parseInt(this.state.beginning.slice(0,2)))
+  	start.setMinutes(parseInt(this.state.beginning.slice(3,5)))
+  	end.setHours(parseInt(this.state.end.slice(0,2)))
+  	end.setMinutes(parseInt(this.state.end.slice(3,5)))
+  	console.log("SED",start,end)
+  	return Object.assign({},
+  		{
+  		id:Math.max(...this.props.events.map((e)=>e.id)) + 1,
+  		dateStart:start,
+  		dateEnd:end,
+  		users:this.state.selectedUsers,
+  		title:this.state.theme,
+  		room: this.state.selectedRoom
+  		})
   }
   render() {
     return (
@@ -212,7 +233,6 @@ export default class MainForm extends Component {
 						
 					}).bind(this)}
 					onItemSelect = {((rec)=>{
-						console.log("REC",rec)
 						this.setState(
 							{
 								selectedRoom:rec.room,

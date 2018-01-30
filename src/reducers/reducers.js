@@ -6,7 +6,9 @@ import {
   TO_EDIT_EVENT,
   SET_ALL_BUSY,
   REMOVE_ALL_BUSY,
-  CANCEL_EVENT
+  CANCEL_EVENT,
+  EVENT_CREATED,
+  SHOW_CREATED_MODAL
 } from '../actions/actions'
 
 function roomsState(state = {
@@ -32,15 +34,17 @@ function handlingEvent(state = {}, action) {
   case TO_CREATE_EVENT:
   case TO_EDIT_EVENT:
     return action.eventInfo
+  case EVENT_CREATED:
+    return {}
   default:
     return state
   }
 }
 
-function events(state = {}, action) {
+function events(state = [], action) {
   switch (action.type) {
   case CREATE_EVENT:
-    return Object.assign({},state,action.event)
+    return [...state,action.event]
   default:
     return state
   }
@@ -74,6 +78,23 @@ function currentDate(state = new Date(), action) {
   }
 }
 
+function modals(state = {
+	"created":false,
+	"delete":false,
+	"eventInfo":{}
+	}, action) {
+  switch (action.type) {
+  	case SHOW_CREATED_MODAL:
+    return Object.assign({},state,
+    	{
+    		created:true,
+    		eventInfo:action.eventInfo})
+	  default:
+	    return state
+	  }
+}
+
+
 const rootReducer = combineReducers({
   roomsState,
   events,
@@ -81,7 +102,8 @@ const rootReducer = combineReducers({
   rooms,
   users,
   currentDate,
-  roomsByFloor
+  roomsByFloor,
+  modals
 })
 
 export default rootReducer

@@ -2,7 +2,6 @@ import React,{ Component } from 'react';
 import './Grid.scss';
 const R = require('ramda');
 export default function Grid(props){
-  console.log("range",R.range(0,props.hours))
   let cellWidth = 100/props.hours
   return (
     <div className = "grid">

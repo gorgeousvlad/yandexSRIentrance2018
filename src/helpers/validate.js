@@ -33,7 +33,10 @@ export const validate = (state) => {
   	if(parseInt(beginning.slice(0,2))< 7){
   		errors.beginningValid = false
   	}
-  	else if(parseInt(beginning.slice(0,2)) < now.getHours()){
+  	else if( datepicker.getFullYear() === now.getFullYear() &&
+      datepicker.getMonth() === now.getMonth() &&
+      datepicker.getDate() === now.getDate() &&
+      parseInt(beginning.slice(0,2)) < now.getHours()){
   		errors.beginningValid = false
   	}
     else errors.beginningValid = true;

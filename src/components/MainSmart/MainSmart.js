@@ -10,7 +10,8 @@ let mainsmart  = (props) => {
     null
     :(
       <div className="main-screen">
-       <Header needButton = {true}/>
+       <Header needButton = {true} 
+       toCreateEvent = {props.toCreateEvent}/>
        <MainScreen {...props}/>
       </div>
     );

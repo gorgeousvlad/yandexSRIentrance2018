@@ -6,6 +6,17 @@ export default class Header extends Component{
 	constructor(props){
 		super(props);
 	}
+	createEventInfo(){
+		let now = new Date(),
+			then = new Date();
+		then.setHours(now.getHours() + 1)
+		return {
+			dateStart:now,
+			dateEnd:then,
+			room:null,
+			type:"create"
+		}
+	}
 	render(){
 		return (
 		<header className="header">
@@ -13,7 +24,9 @@ export default class Header extends Component{
           <img src = {logo}/>
           </div>
           {this.props.needButton?
-          <Button type = 'create' text = 'Создать встречу' onClick = {()=>{}}/>:
+          <Button type = 'create' text = 'Создать встречу' 
+          onClick = {this.props.toCreateEvent.bind(null,this.createEventInfo())}
+          	/>:
           null
           }
         </header>
