@@ -76,7 +76,6 @@ function roomsByFloor(state = {}, action) {
 function currentDate(state = new Date(), action) {
   switch (action.type) {
     case SET_DATE:
-    console.log("SET_DATE",action)
     return action.date
   default:
     return state
